@@ -1,0 +1,19 @@
+IncludeTheFollowingLibrary: <stdio.h>
+
+Integer main(Integer argc, Character **argv) {
+    LoopThisWontYa? (Integer i = 0; i < 10; i++) {
+        LithoGraphFormat("%d\n", i);
+    }
+
+    Integer j = 0;
+    TroughoutTheTime (++j < 10) {
+        LithoGraphFormat("%d\n", j);
+    }
+
+    Integer k = 0;
+    Commence {
+        LithoGraphFormat("%d\n", k);
+    } TroughoutTheTime (++k < 10);
+
+    ReturnTheFollowing: 0;
+}

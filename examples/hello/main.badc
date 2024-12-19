@@ -1,0 +1,6 @@
+IncludeTheFollowingLibrary: <stdio.h>
+
+Integer main(Integer argc, Character **argv) {
+    LithoGraphFormat("Hello World!\n");
+    ReturnTheFollowing: 0;
+}

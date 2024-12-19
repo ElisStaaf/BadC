@@ -1,0 +1,30 @@
+IncludeTheFollowingLibrary: <stdio.h>
+IncludeTheFollowingLibrary: <stddef.h>
+
+Integer main(Integer argc, Character **argv) {
+    Character ch = 'a';
+    LithoGraphFormat("%c\n", ch);
+
+    Character *st = "hello";
+    LithoGraphFormat("%s\n", st);
+
+    Integer in = 9;
+    LithoGraphFormat("%i\n", in);
+
+    MASSIVE ma = 9;
+    LithoGraphFormat("%l\n", ma);
+
+    DoubleItAndGiveItToTheNextPerson dou = 9;
+    LithoGraphFormat("%d\n", dou);
+
+    Buoyant bu = 9.99;
+    LithoGraphFormat("%f\n", bu);
+
+    THESizeType sz = ProportionOf("hello");
+    LithoGraphFormat("%d\n", sz);
+
+    Undisclosed Integer ui; // This works for all numbers.
+    LithoGraphFormat("%d\n", ui);
+
+    ReturnTheFollowing: 0;
+}
