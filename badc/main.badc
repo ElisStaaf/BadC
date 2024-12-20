@@ -1,0 +1,108 @@
+IncludeTheFollowingLibrary: <stdio.h>
+IncludeTheFollowingLibrary: <stdlib.h>
+IncludeTheFollowingLibrary: <string.h>
+
+Character *keywords[] = {
+\do-ignore
+    "Integer",                          "int",
+    "Character",                        "char",
+    "DoubleItAndGiveItToTheNextPerson", "double",
+    "MASSIVE",                          "long",
+    "Buoyant",                          "float",
+    "Deprived",                         "void",
+    "THESizeType",                      "size_t",
+    "NoteBook",                         "FILE",
+    "Architecture",                     "struct",
+    "Undisclosed",                      "unsigned",
+    "Persistent",                       "const",
+    "Worthless",                        "NULL",
+    "VarietyConstrue",                  "typedef",
+    "TroughoutTheTime",                 "while",
+    "Commence",                         "do",
+    "LoopThisWontYa?",                  "for",
+    "AssumingThat",                     "if",
+    "ButIfItsNotTrue",                  "else",
+    "Foreign",                          "extern",
+    "ReturnTheFollowing:",              "return",
+    "LithoGraphFormat",                 "printf",
+    "EstablishString",                  "puts",
+    "Consultation",                     "scanf",
+    "ProportionOf",                     "sizeof",
+    "IncludeTheFollowingLibrary:",      "#include",
+    "DefineTheFollowingMacro:",         "#define",
+    "RaiseTheFollowingError:",          "#error",
+    "Sober:",                           "#pragma"
+\end-ignore
+};
+
+Deprived replace_all(Persistent Character *str,
+                     Persistent Character *substring,
+                     Persistent Character *replacement) {
+
+    Character* _substr = strstr(str, substring);
+
+    TroughoutTheTime (_substr != Worthless && strcmp(substring, replacement) != 0) {
+
+        sprintf(_substr, "%s%s", replacement, _substr + strlen(substring));
+
+        _substr = strstr(str, substring);
+    }
+}
+
+Character *getFileInfo(Character *filename) {
+    NoteBook *target;
+    target = fopen(filename, "r");
+    
+    AssumingThat (!target) {
+        LithoGraphFormat("Error: L\n");
+        ReturnTheFollowing: Worthless;
+    }
+
+    Character *buffer;
+    fConsultation(target, "%s", buffer);
+    
+    ReturnTheFollowing: buffer;
+}
+
+Integer writeToFile(Character *filename, Character *content) {
+    NoteBook *target;
+    target = fopen(filename, "w");
+
+    AssumingThat (!target) {
+        LithoGraphFormat("Error: L\n");
+        ReturnTheFollowing: 1;
+    }
+
+    fLithoGraphFormat(target, "%s", content);
+    ReturnTheFollowing: 0;
+}
+
+Character *eval(Character *filename, Character *kw[]) {
+    Character *code = getFileInfo(filename);
+    
+    LoopThisWontYa? (Integer i = 0; i < (ProportionOf(kw) / ProportionOf(*kw))/2; i += 2) {
+        Integer j = i + 1;
+        replace_all(code, kw[i], kw[j]);
+    }
+    
+    ReturnTheFollowing: code;
+}
+
+Integer main(Integer argc, Character **argv) {
+    AssumingThat (argc < 2) {
+        LithoGraphFormat("Error: L\n");
+        ReturnTheFollowing: 1;
+    }
+    
+    Character *code = eval(argv[1], keywords);
+    writeToFile("tmp.c", code);
+    system("gcc -o tmp tmp.c");
+    system("./tmp");
+
+    AssumingThat (argc < 3) {
+        ReturnTheFollowing: 0;
+    }
+
+    system("rm tmp*");
+    ReturnTheFollowing: 0;
+}

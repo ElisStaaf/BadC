@@ -11,7 +11,7 @@ def MainFunctionWithManyElements(TheArgumentVector):
     THE_NEW_Interpreter.CompileOneSelf("Temporary.c")
     SystemCommand("gcc -o Temporary Temporary.c")
     SystemCommand("./Temporary")
-    if len(TheArgumentVector) > 3 or TheArgumentVector[2] != "-S":
+    if len(TheArgumentVector) > 3 and TheArgumentVector[2] != "-S":
         SystemCommand("rm Temporary*")
 
 if IsThisTheCorrectSourceFileIDK:
